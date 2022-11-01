@@ -1,0 +1,33 @@
+{
+    "name": "Revelo",
+    "version": "1.0.0",
+    "description": "Detecting darkpatterns on web browsers",
+    "permissions": ["storage","tabs"],
+    "host_permissions": ["https://o1xv0g.deta.dev/*"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://o1xv0g.deta.dev/*"],
+            "js": "contentScripts.js"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/image1.png",
+                "assets/image2.png"
+            ]
+        }
+    ],
+    "action":{
+        "default_title": "Revelo",
+        "default_popup": "popup.html",
+        "default_icons": {
+            "01": "assets/image3.png",
+            "02": "assets/image4.png"
+        }
+    },
+    "manifest_version": 3
+}
