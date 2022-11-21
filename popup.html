@@ -1,16 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="popup.css" />
-  </head>
-  <body>
-    <main>
-      <div class="container">
-        <h1 class="heading">Revelo</h1>
-        <h3 class="sub-heading">Chrome extension for identifying darkpatterns.</h3>
-        <div id="main-content"></div>
-      </div>
-    </main>
-    <script src="popup.js"></script>
-  </body>
+    <head>
+        <h2>Revelo</h2>
+    </head>
+    <style>
+        body{
+            height: 275px;
+            width: 150px;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+
+            margin: 0;
+            padding: 10px;
+
+            background-color: #212529;
+        }
+        div{
+            margin-bottom: 15px;
+            padding:5px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            background-color: #e9ecef;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        h2{
+            color: #4cc9f0;
+            border-width: 3px;
+            border-style: solid;
+            border-color: #7209b7;
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <body>
+        <div style="overflow-y:hidden;overflow-x:scroll;">
+            <span id="00"></span>
+        </div>
+        <div>
+            <b>Has scarcity:</b>
+            <span id="01"> </span>
+        </div>
+        <div>
+            <b>Has count down:</b>
+            <span id="02"> </span>
+        </div>
+        <div>
+            <b>Has social proof:</b>
+            <span id="03"> </span>
+        </div>
+        <button id="btn1">Scan</button>
+    </body>
+    <script src="execute.js"></script>
 </html>

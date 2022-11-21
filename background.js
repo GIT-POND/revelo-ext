@@ -1,7 +1,16 @@
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+// event to run execute.js content when extension's button is clicked
+chrome.action.onClicked.addListener(execScript);
 
-    // since only one tab should be active and in the current window at once
-    // the return variable should only have one entry
-    var activeTab = tabs[0];
-    localStorage.setItem('url',`${activeTab.url}`);
- });
+async function execScript() {
+  const tabId = await getTabId();
+  chrome.scripting.executeScript({
+    target: {tabId: tabId},
+    files: ['execute.js']
+  })
+}
+
+async function getTabId() {
+  const tabs = await chrome.tabs.query({active: true, currentWindow: true});
+  return (tabs.length > 0) ? tabs[0].id : null;
+}
+
